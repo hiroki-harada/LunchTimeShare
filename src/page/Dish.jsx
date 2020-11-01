@@ -12,9 +12,10 @@ const Dish = ({dishInfo}) => {
     //     setShopName("hogehoge食堂")
     //     return
     // }, [])
+    console.log(dishInfo)
 
     return (
-        <div>
+        <div className="dish">
             {/* 編集ボタン クリックで編集用のモーダルを開く*/}
             {/* <button type="submit" value={this.state.buttonMode}></button> */}
             <div className="picture">

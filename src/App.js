@@ -1,17 +1,12 @@
 import React from 'react'
 // import logo from './logo.svg'
 import './App.css'
-import Dish from './page/Dish'
+import UserTop from "./page/UserTop"
 
 const App = () => {
-    const dishInfo = {
-        description: "チキン竜田揚げ定食",
-        price: "800円",
-        shopName: "hogehoge食堂"
-    }
     return (
         <div className="App">
-            <Dish dishInfo = {dishInfo}></Dish>
+            <UserTop></UserTop>
         </div>
     )
 }
