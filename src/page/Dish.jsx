@@ -1,0 +1,21 @@
+import React from "react"
+import "./css/Dish.css"
+
+const Dish = ({dishInfo}) => {
+    return (
+        <div className="dish">
+            {/* 編集ボタン クリックで編集用のモーダルを開く*/}
+            {/* <button type="submit" value={this.state.buttonMode}></button> */}
+            {/* 写真 */}
+            <img className="picture" src={dishInfo.picture} alt=""/>
+            <div className="menu-description">
+                {/* 説明 と値段*/}
+                <p className="description">{dishInfo.description}　　　{dishInfo.price}</p>
+                {/* お店の名前 */}
+                <p className="shop-name">{dishInfo.shopName}</p>
+            </div>
+        </div>
+    )
+}
+
+export default Dish
