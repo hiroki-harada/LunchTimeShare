@@ -1,30 +1,28 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import Dish from "./Dish"
+import { firebaseApp } from "../firebase/config"
+import { collectionData } from "rxfire/firestore"
 import pict1 from "./pict1.jpg"
-import pict2 from "./pict2.jpg"
+// import pict2 from "./pict2.jpg"
 
 const UserTop = () => {
-    const dishInfo = [
-        {
-            picture: pict1,
-            description: "チキン竜田揚げ定食",
-            price: "800円",
-            shopName: "hogehoge食堂"
-        },
-        {
-            
-            picture: pict2,
-            description: "トンカツ定食",
-            price: "850円",
-            shopName: "fugafugaキッチン"
-        }
-    ]
+    const [dishInfo, setDishInfo] = useState([])
+
+    const query = firebaseApp.firestore()
+        .collection("dishInfo")
+
+        useEffect(() => {
+            const subscription = collectionData(query, "idx").subscribe(dishInfo => {
+            setDishInfo(dishInfo)
+        })
+        return () => subscription.unsubscribe()
+    })
 
     return (
         <div className = "">
             {dishInfo.map(dish =>
-                <div key = {dish}>
-                    <Dish dishInfo = {dish}></Dish>
+                <div key = {dish.idx}>
+                    <Dish dishInfo = {dish} pict = {pict1}></Dish>
                 </div>
             )}
         </div>
