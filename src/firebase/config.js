@@ -1,5 +1,6 @@
-import { initializeApp, firestore } from "firebase/app"
+import { initializeApp, auth } from "firebase/app"
 import "firebase/firestore"
+import "firebase/auth"
 
 export const firebaseApp = initializeApp({
     apiKey: process.env.REACT_APP_API_KEY,
@@ -12,10 +13,16 @@ export const firebaseApp = initializeApp({
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
 });
 
-firestore().settings({ timestampsInSnapshots: true })
+auth().onAuthStateChanged(user => {
+    if (!user) {
+        firebaseApp.auth().signInAnonymously()
+    }
+})
 
-firestore()
-    .enablePersistence({ experimentalTabSynchronization: true })
-    .catch((err) => {
-        console.error(err)
-    })
+// firestore().settings({ timestampsInSnapshots: true })
+
+// firestore()
+//     .enablePersistence({ experimentalTabSynchronization: true })
+//     .catch((err) => {
+//         console.error(err)
+//     })

@@ -12,6 +12,8 @@
     /* width: 100px; */
     display: inline-block;
     height: auto;
+    min-height: 30%;
     max-width: 70%;
+    min-width: 20%;
 }
 
