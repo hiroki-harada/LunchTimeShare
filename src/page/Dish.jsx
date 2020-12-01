@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react"
 import "./css/Dish.css"
 import { firebaseApp } from "../firebase/config"
 const Dish = ({dishInfo}) => {
-    
+
     const [url , setUrl] = useState("")
-    
+
     const ref = firebaseApp.storage().ref().child(dishInfo.picture)
     useEffect(() => {
         ref.getDownloadURL().then(url => {
