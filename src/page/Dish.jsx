@@ -1,27 +1,16 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import "./css/Dish.css"
-// import { firebaseApp } from "../firebase/config"
-import firebase from 'firebase';
+import { firebaseApp } from "../firebase/config"
 const Dish = ({dishInfo}) => {
 
     const [url , setUrl] = useState("")
 
-    // const ref = firebase.storage().ref().child(dishInfo.picture)
-    // ref.getDownloadURL().then(url => {
-    //     let xhr = new XMLHttpRequest()
-    //     xhr.responseType = 'blob'
-    //     // xhr.onload =(event) => {
-    //     //     var blob = xhr.response
-    //     // }
-    //     xhr.open('GET', url)
-    //     xhr.send()
-    //     console.log(url)
-    //     setUrl(url)
-    // }).catch(err => console.log(err))
-
-    // useEffect(() => {
-    // })
-
+    const ref = firebaseApp.storage().ref().child(dishInfo.picture)
+    useEffect(() => {
+        ref.getDownloadURL().then(url => {
+            setUrl(url)
+        }).catch(err => console.log(err))
+    })
 
     return (
         <div className="dish">
