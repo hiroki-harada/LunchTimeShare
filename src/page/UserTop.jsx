@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react"
 import Dish from "./Dish"
 import { firebaseApp } from "../firebase/config"
 import { collectionData } from "rxfire/firestore"
-// import pict2 from "./pict2.jpg"
+import "./css/UserTop.css"
+import AddMenuModal from "../component/AddMenuModal"
 
 const UserTop = () => {
     const [dishInfo, setDishInfo] = useState([])
@@ -20,10 +21,10 @@ const UserTop = () => {
         <div className = "">
             {dishInfo.map(dish =>
                 <div key = {dish.idx}>
-                    {/* {console.log(dish)} */}
                     <Dish dishInfo = {dish}></Dish>
                 </div>
             )}
+            <AddMenuModal></AddMenuModal>
         </div>
     )
 }
