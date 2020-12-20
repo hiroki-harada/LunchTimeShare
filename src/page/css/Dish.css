@@ -1,0 +1,19 @@
+.dish {
+    text-align: center;
+    /* width: 30%; */
+    /* float: left; */
+    /* position: relative; */
+    /* display: flex; */
+    max-width: 80%;
+    align-items: center;
+}
+
+.picture {
+    /* width: 100px; */
+    display: inline-block;
+    height: auto;
+    min-height: 30%;
+    max-width: 70%;
+    min-width: 20%;
+}
+
