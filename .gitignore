@@ -22,5 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# github
+.github/
+
 # firebase
+.firebase/*.cache
+.firebaserc
 cors.json

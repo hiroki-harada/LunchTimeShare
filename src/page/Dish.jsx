@@ -9,7 +9,10 @@ const Dish = ({dishInfo}) => {
     useEffect(() => {
         ref.getDownloadURL().then(url => {
             setUrl(url)
-        }).catch(err => console.log(err))
+        }).catch(err => {
+            console.log(err)
+            setUrl(null)
+        })
     })
 
     return (
