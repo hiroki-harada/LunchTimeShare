@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, {useState, useEffect} from "react"
 import "./css/Dish.css"
 import { firebaseApp } from "../firebase/config"
@@ -5,15 +6,17 @@ const Dish = ({dishInfo}) => {
 
     const [url , setUrl] = useState("")
 
-    const ref = firebaseApp.storage().ref().child(dishInfo.picture)
+    // const ref = firebaseApp.storage().ref().child(dishInfo.picture)
     useEffect(() => {
-        ref.getDownloadURL().then(url => {
+        console.log("useEffect Dish")
+        firebaseApp.storage().ref().child(dishInfo.picture)
+        .getDownloadURL().then(url => {
             setUrl(url)
         }).catch(err => {
             console.log(err)
             setUrl(null)
         })
-    })
+    }, [dishInfo.picture])
 
     return (
         <div className="dish">
