@@ -10,6 +10,7 @@ const AddMenuButton = () => {
         position: 'fixed'
     }
     return (
+        // eslint-disable-next-line react/no-children-prop
         <Fab children="＋" color="primary" aria-label="add" className="add-dish" style={style}>
         </Fab>
     )

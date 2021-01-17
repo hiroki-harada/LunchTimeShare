@@ -8,13 +8,17 @@ import AddMenuModal from "../component/AddMenuModal"
 const UserTop = () => {
     const [dishInfo, setDishInfo] = useState([])
 
-    const query = firebaseApp.firestore().collection("dishInfo")
     useEffect(() => {
-        const subscription = collectionData(query, "idx").subscribe(dishInfo => {
+        console.log("useEffect UserTop")
+        const subscription = collectionData(
+                firebaseApp.firestore().collection("dishInfo"),
+                "idx")
+            .subscribe(dishInfo => {
+            console.log(dishInfo)
             setDishInfo(dishInfo)
         })
         return () => subscription.unsubscribe()
-    })
+    }, [])
 
 
     return (
