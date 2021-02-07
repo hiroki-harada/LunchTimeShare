@@ -2,6 +2,8 @@
 import React, {useState, useEffect} from "react"
 import "./css/Dish.css"
 import { firebaseApp } from "../firebase/config"
+import EditMenuButton from "../component/EditMenuButton"
+
 const Dish = ({dishInfo}) => {
 
     const [url , setUrl] = useState("")
@@ -30,6 +32,7 @@ const Dish = ({dishInfo}) => {
                 {/* お店の名前 */}
                 <p className="shop-name" data-testid="shop-name">{dishInfo.shopName}</p>
             </div>
+            <EditMenuButton></EditMenuButton>
         </div>
     )
 }
