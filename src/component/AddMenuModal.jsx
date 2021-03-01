@@ -28,7 +28,7 @@ const AddMenuModal = () => {
         const hash = md5(state.description + String(new Date()))
         const picrureName = `${hash}.jpg`
 
-        // 登録するファイル名のhashを生成
+        /* 登録するファイル名のhashを生成 */
         const firestoreRef = firebaseApp.firestore().collection("dishInfo")
         firestoreRef
         .add({
@@ -73,7 +73,6 @@ const AddMenuModal = () => {
             </div>
             <Modal
                 isOpen={isModalOpen}
-                // onAfterOpen={afterOpenModal}
                 onRequestClose={() => setIsModalOpen(false)}
                 style={customStyles}
                 contentLabel="Example Modal"
