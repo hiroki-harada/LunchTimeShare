@@ -5,7 +5,7 @@
     /* position: relative; */
     /* display: flex; */
     max-width: 80%;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .picture {
@@ -17,3 +17,22 @@
     min-width: 20%;
 }
 
+.menu-description {
+    margin-top: 0%;
+    margin-bottom: 5%;
+    display: inline-block;
+    max-width: 70%;
+    min-width: 50%;
+}
+
+.description {
+    text-align: center;
+}
+
+.shop-name {
+    position: relative;
+    /* text-align: left; */
+    max-width: 70%;
+    padding-inline-start: 10%;
+    /* margin-right: 10px; */
+}

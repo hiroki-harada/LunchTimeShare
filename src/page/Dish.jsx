@@ -2,11 +2,12 @@
 import React, {useState, useEffect} from "react"
 import "./css/Dish.css"
 import { firebaseApp } from "../firebase/config"
+
 const Dish = ({dishInfo}) => {
 
     const [url , setUrl] = useState("")
 
-    // const ref = firebaseApp.storage().ref().child(dishInfo.picture)
+    /* const ref = firebaseApp.storage().ref().child(dishInfo.picture) */
     useEffect(() => {
         console.log("useEffect Dish")
         firebaseApp.storage().ref().child(dishInfo.picture)
@@ -20,7 +21,7 @@ const Dish = ({dishInfo}) => {
 
     return (
         <div className="dish">
-            {/* 編集ボタン クリックで編集用のモーダルを開く*/}
+            {/* 編集ボタン クリックで編集用のモーダルを開く */}
             {/* <button type="submit" value={this.state.buttonMode}></button> */}
             {/* 写真 */}
             <img className="picture" data-testid="picture" src={url} alt="画像"/>
