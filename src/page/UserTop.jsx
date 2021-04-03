@@ -5,6 +5,7 @@ import { collectionData } from "rxfire/firestore"
 /* import "./css/UserTop.css" */
 import AddMenuModal from "../component/AddMenuModal"
 import EditMenuModal from "../component/EditMenuModal"
+import DeleteMenuButton from "../component/DeleteMenuButton"
 
 const UserTop = () => {
     const [dishInfo, setDishInfo] = useState([])
@@ -18,6 +19,11 @@ const UserTop = () => {
             price: dishForUpdate.price,
             shopName: dishForUpdate.shopName
         })
+    }
+
+    const deleteDishInfo = (idx) => {
+        firebaseApp.firestore().collection("dishInfo").doc(idx)
+        .delete()
     }
 
     useEffect(() => {
@@ -38,6 +44,9 @@ const UserTop = () => {
                 <div key = {dish.idx}>
                     <Dish dishInfo = {dish}></Dish>
                     <EditMenuModal dishIdx={dish.idx} dishInfo = {dish} onRceivingDishInfoFromModal = {updateDishInfo}></EditMenuModal>
+                    <div onClick = {() => deleteDishInfo(dish.idx)}>
+                        <DeleteMenuButton ></DeleteMenuButton>
+                    </div>
                 </div>
             )}
             <AddMenuModal></AddMenuModal>
