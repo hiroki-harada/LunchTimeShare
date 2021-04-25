@@ -22,6 +22,8 @@ const UserTop = () => {
     }
 
     const deleteDishInfo = (idx) => {
+        const isOkDelete = window.confirm("Are you sure to delete?")
+        if (!isOkDelete) return
         firebaseApp.firestore().collection("dishInfo").doc(idx)
         .delete()
     }
