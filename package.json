@@ -13,6 +13,7 @@
     "js-md5": "^0.7.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-firebaseui": "^5.0.2",
     "react-modal": "^3.12.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
