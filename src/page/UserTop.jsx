@@ -42,6 +42,9 @@ const UserTop = () => {
 
     return (
         <div className = "">
+            <div onClick={() => firebaseApp.auth().signOut()}>
+                <button>LOGOUT</button>
+            </div>
             {dishInfo.map(dish =>
                 <div key = {dish.idx}>
                     <Dish dishInfo = {dish}></Dish>

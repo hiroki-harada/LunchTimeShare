@@ -1,4 +1,5 @@
 import React from "react"
+import { withRouter } from "react-router"
 import firebase from "firebase/app"
 import { firebaseApp } from "../firebase/config"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
@@ -7,7 +8,7 @@ const Login = () => {
 
     const uiConfig = {
         signInFlow: 'popup',
-        signInSuccessUrl: '/signedIn',
+        signInSuccessUrl: "/usertop",
         signInOptions: [
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
             firebase.auth.FacebookAuthProvider.PROVIDER_ID
@@ -16,11 +17,11 @@ const Login = () => {
 
     return (
         <>
-            <h2>LOGIN</h2>
+            <h2>PLEASE SIGN IN ...</h2>
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebaseApp.auth()} />
         </>
     )
 }
 
 
-export default Login
+export default withRouter(Login)

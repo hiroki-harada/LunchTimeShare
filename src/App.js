@@ -5,17 +5,20 @@ import {
 } from "react-router-dom"
 import UserTop from "./page/UserTop"
 import Login from "./page/Login"
+import {AuthContextProvider, PrivateRoute} from "./firebase/FbAuthProvider"
 
 const App = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <BrowserRouter>
-                    <Switch>
-                        <Route exact path = "/" component = {UserTop}/>
-                        <Route exact path = "/login" component = {Login}/>
-                    </Switch>
-                </BrowserRouter>
+                <AuthContextProvider>
+                    <BrowserRouter>
+                        <Switch>
+                            <PrivateRoute exact path = {"/usertop"} component = {UserTop}/>
+                            <Route exact path = {"/"} component = {Login}/>
+                        </Switch>
+                    </BrowserRouter>
+                </AuthContextProvider>
             </header>
         </div>
     )
