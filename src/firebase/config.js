@@ -1,4 +1,4 @@
-import { initializeApp, auth } from "firebase/app"
+import { initializeApp } from "firebase/app"
 import "firebase/firestore"
 import "firebase/auth"
 import "firebase/storage"
@@ -14,11 +14,11 @@ export const firebaseApp = initializeApp({
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
 });
 
-auth().onAuthStateChanged(user => {
-    if (!user) {
-        firebaseApp.auth().signInAnonymously()
-    }
-})
+// auth().onAuthStateChanged(user => {
+//     if (!user) {
+//         firebaseApp.auth().signInAnonymously()
+//     }
+// })
 
 // firestore().settings({ timestampsInSnapshots: true })
 
