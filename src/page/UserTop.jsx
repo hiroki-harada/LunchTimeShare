@@ -6,6 +6,7 @@ import { collectionData } from "rxfire/firestore"
 import AddMenuModal from "../component/AddMenuModal"
 import EditMenuModal from "../component/EditMenuModal"
 import DeleteMenuButton from "../component/DeleteMenuButton"
+import LogoutButton from "../component/LogoutButton"
 
 const UserTop = () => {
     const [dishInfo, setDishInfo] = useState([])
@@ -42,16 +43,13 @@ const UserTop = () => {
 
     return (
         <div className = "">
-            <div onClick={() => firebaseApp.auth().signOut()}>
-                <button>LOGOUT</button>
-            </div>
+                <LogoutButton onClick={() => firebaseApp.auth().signOut()}></LogoutButton>
             {dishInfo.map(dish =>
                 <div key = {dish.idx}>
                     <Dish dishInfo = {dish}></Dish>
                     <EditMenuModal dishIdx={dish.idx} dishInfo = {dish} onRceivingDishInfoFromModal = {updateDishInfo}></EditMenuModal>
-                    <div onClick = {() => deleteDishInfo(dish.idx)}>
-                        <DeleteMenuButton ></DeleteMenuButton>
-                    </div>
+
+                    <DeleteMenuButton onClick = {() => deleteDishInfo(dish.idx)}></DeleteMenuButton>
                 </div>
             )}
             <AddMenuModal></AddMenuModal>

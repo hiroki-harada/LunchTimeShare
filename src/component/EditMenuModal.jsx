@@ -48,10 +48,8 @@ const EditMenuModal = props => {
 
     return (
         <div>
-            <div onClick={() => setIsModalOpen(true)}>
-                <EditMenuButton></EditMenuButton>
-            </div>
-
+            <EditMenuButton onClick={() => setIsModalOpen(true)}></EditMenuButton>
+            
             <Modal
                 isOpen={isModalOpen}
                 onAfterOpen={readDishInfoToModal}
