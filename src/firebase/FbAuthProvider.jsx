@@ -16,7 +16,7 @@ export const AuthContextProvider = ({ children }) => {
     }, [])
 
     return (
-        // valueに子コンポーネントで使いたい変数や関数を与える
+        /* valueに子コンポーネントで使いたい変数や関数を与える */
         <AuthContext.Provider
             value = {{
                 currentUser
@@ -31,10 +31,10 @@ export const AuthContextProvider = ({ children }) => {
 /* eslint-disable-next-line react/prop-types */
 export const PrivateRoute = ({ component: RouteComponent, ...options }) => {
 
-    // AuthContextからcurrentUserを取り出す
+    /* AuthContextからcurrentUserを取り出す */
     const { currentUser } = useContext(AuthContext)
 
-    // ログイン済ならcomponentで指定したコンポーネントを、そうでないならLogin画面へ遷移
+    /* ログイン済ならcomponentで指定したコンポーネントを、そうでないならLogin画面へ遷移 */
     const renderdComponent = currentUser ? RouteComponent : Login
     return <Route { ...options } component = { renderdComponent } />
 }
