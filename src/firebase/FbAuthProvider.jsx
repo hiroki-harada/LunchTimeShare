@@ -4,7 +4,7 @@ import Login from "../page/Login"
 import { firebaseApp } from "../firebase/config"
 
 
-// Contextオブジェクトを作成
+/* Contextオブジェクトを作成 */
 export const AuthContext = createContext()
 
 /* eslint-disable-next-line react/prop-types */
